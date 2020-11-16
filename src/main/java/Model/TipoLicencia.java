@@ -1,9 +1,6 @@
 package Model;
 
 import javax.persistence.*;
-import java.time.LocalDate;
-import java.util.Objects;
-import javax.persistence.Entity;
 
 
 @Entity

@@ -2,13 +2,11 @@ package Model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Objects;
-import javax.persistence.Entity;
 
 
 @Entity
 @Table(name = "titular")
-public class Titular implements Comparable<Model.Titular> {
+public class Titular implements Comparable<Titular> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
