@@ -17,6 +17,9 @@ public class TipoLicencia implements Comparable<TipoLicencia> {
     public TipoLicencia() {
     }
 
+    public TipoLicencia(String valor) {
+    }
+
     public Integer getId() {
         return id;
     }
