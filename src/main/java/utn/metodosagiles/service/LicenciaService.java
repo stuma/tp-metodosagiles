@@ -49,26 +49,19 @@ public class LicenciaService {
 
     /**
      * Calcula la fecha de vigencia .
-     * @param licencia: unalicencia
+     * @param fechaNacimiento
      * @return costo total de emitir la licencia.
      */
-    public LocalDate calcularVigencia(Licencia licencia) throws Exception {
-
-
-        LocalDate fechaNac = licencia.getTitular().getFechaNacimiento();
+    public LocalDate calcularVigencia(LocalDate fechaNacimiento, boolean licenciaPrev ) throws Exception {
         LocalDate ahora = LocalDate.now();
-
-        Period periodo = Period.between(fechaNac, ahora);
+        Period periodo = Period.between(fechaNacimiento, ahora);
         Integer años = periodo.getYears();
-
-        Integer diasHastaCumple = Math.abs((int) ChronoUnit.DAYS.between(ahora,fechaNac.plusYears(años)));
-
-        boolean checkLicPrev= checkLicenciaPrevia(licencia.getTitular());
+        Integer diasHastaCumple = Math.abs((int) ChronoUnit.DAYS.between(ahora,fechaNacimiento.plusYears(años)));
         boolean lic = true;
-        if(diasHastaCumple < 45){ throw new Exception("falta poco para fecha nac");   }
+        if(diasHastaCumple < 45){ throw new Exception("proximidad menor a 45 dias");   }
         int vigencia=0;
         if(años<21){
-            if(checkLicPrev){vigencia=3;}
+            if(licenciaPrev){vigencia=3;}
             vigencia=1;
         }
         else{
@@ -84,7 +77,7 @@ public class LicenciaService {
         }
 
         int auxAñoVigencia=  ahora.getYear() + vigencia;
-        return fechaNac.plusYears(auxAñoVigencia);
+        return fechaNacimiento.plusYears(auxAñoVigencia);
 
 
     }
@@ -92,11 +85,11 @@ public class LicenciaService {
     /**
      * Funciona con una llamaba a la bd que tienen los datos requeridos para calcular el costo.
      * @param categoria: tipo de licencia [A|B|C|E|G].
-     * @param licencia: unalicencia
+     * @param vigencia: duraciond e la licencia
      * @return costo total de emitir la licencia.
-     */public Float calcularCostoLicencia(String categoria,Licencia licencia) throws Exception {
+     */public Float calcularCostoLicencia(String categoria, Integer vigencia) throws Exception {
 
-        int vigencia=calcularVigencia(licencia).getYear();
+
         float calculoCosto=0;
 
         switch(categoria){
