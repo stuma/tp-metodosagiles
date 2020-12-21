@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "app.datasource.jdbc-url",
+      "type": "java.lang.String",
+      "description": "Description for app.datasource.jdbc-url."
+    },
+    {
+      "name": "app.datasource.password",
+      "type": "java.lang.String",
+      "description": "Description for app.datasource.password."
+    }
+  ] }

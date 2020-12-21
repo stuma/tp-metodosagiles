@@ -1,0 +1,6 @@
+app:
+  datasource:
+    jdbc-url: jdbc:mysql://localhost:3306/tp-metodosagiles?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password:
+    pool-size: 30
