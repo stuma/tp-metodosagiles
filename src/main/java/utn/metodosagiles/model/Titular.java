@@ -55,6 +55,9 @@ public class Titular {
     public Titular() {
     }
 
+    public Titular(String id) {
+    }
+
     @Override
     public String toString() {
         return "Licencia{" +
