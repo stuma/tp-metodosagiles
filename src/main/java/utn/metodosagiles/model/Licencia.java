@@ -3,6 +3,7 @@ package utn.metodosagiles.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.time.LocalDate;
+import java.util.List;
 
 //@Entity
 //@Table(name = "licencia")
@@ -35,15 +36,24 @@ public class Licencia {
 //    @Column
     private Boolean pendiente;
 
+    private List<Licencia> listaLicencia;
+
+    public List<Licencia> getListaLicencia() {
+        return listaLicencia;
+    }
+
+    public void setListaLicencia(List<Licencia> listaLicencia) {
+        this.listaLicencia = listaLicencia;
+    }
 
     public Licencia(@JsonProperty("id") String id,
-                   @JsonProperty("tipoLicencia") TipoLicencia tipoLicencia,
+                    @JsonProperty("tipoLicencia") TipoLicencia tipoLicencia,
                     @JsonProperty("fechaEmision") LocalDate fechaEmision,
                     @JsonProperty("fechaVencimiento") LocalDate fechaVencimiento,
                     @JsonProperty("titular") Titular titular,
-                   @JsonProperty("observaciones") String observaciones,
-                   @JsonProperty("numeroCopias") Integer numeroCopias,
-                   @JsonProperty("pendiente") Boolean pendiente) {
+                    @JsonProperty("observaciones") String observaciones,
+                    @JsonProperty("numeroCopias") Integer numeroCopias,
+                    @JsonProperty("pendiente") Boolean pendiente) {
         this.id = id;
         this.tipoLicencia = tipoLicencia;
         this.fechaEmision = fechaEmision;
