@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 import utn.metodosagiles.dao.interfaces.TitularDaoInterface;
 import utn.metodosagiles.model.Titular;
 
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,8 +24,12 @@ public class TitularService {
     }
 
     //metodo para el alta de un titular
-    public Integer addTitular(Titular licencia){
-        return titularDaoInterface.insertTitular(licencia);
+    public Integer addTitular(Titular titular){
+        int edad = this.calcularEdad(titular.getFechaNacimiento());
+        if(edad >= 17 && edad <= 100){
+            return titularDaoInterface.insertTitular(titular);
+        }
+        else return 0;
     }
 
     //metodo para listar todos los titulares
@@ -44,5 +50,12 @@ public class TitularService {
     //metodo para actualizar un titular por id
     public Integer updateTitular(String id, Titular licencia){
         return titularDaoInterface.updateTitular(id, licencia);
+    }
+
+    //metodo auxiliar para calcular edad de un titular
+    private int calcularEdad(LocalDate fechaNacimiento){
+        LocalDate ahora = LocalDate.now();
+        Period periodo = Period.between(fechaNacimiento, ahora);
+        return periodo.getYears();
     }
 }
