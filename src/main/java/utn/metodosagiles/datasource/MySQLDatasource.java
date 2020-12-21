@@ -6,6 +6,7 @@ import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+//clase de configuracion para la conexion a la base de datos
 @Configuration
 public class MySQLDatasource {
 
