@@ -45,4 +45,8 @@ public class TitularService {
     public Integer updateTitular(String id, Titular licencia){
         return titularDaoInterface.updateTitular(id, licencia);
     }
+
+    public boolean checkLicenciaPrevia(Titular titular) {
+        return true;
+    }
 }

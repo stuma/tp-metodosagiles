@@ -6,7 +6,7 @@ import java.time.LocalDate;
 
 //@Entity
 //@Table(name = "licencia")
-public class Licencia {
+public class Licencia<TipoLicencia> {
 
 //    @Id
 //    @GeneratedValue(strategy= GenerationType.AUTO)
@@ -65,7 +65,7 @@ public class Licencia {
     public String toString() {
         return "Licencia{" +
                 "id=" + id +
-                ", tipoLicencia='" + tipoLicencia.getNombre() + '\'' +
+               // ", tipoLicencia='" + tipoLicencia.getNombre() + '\'' +
                 ", fechaEmision='" + fechaEmision + '\'' +
                 ", fechaVencimiento='" + fechaVencimiento + '\'' +
                 ", titular='" + titular.getNombre() + " " + titular.getApellido() + '\'' +
@@ -83,8 +83,8 @@ public class Licencia {
         this.id = id;
     }
 
-    public TipoLicencia getTipoLicencia() {
-        return tipoLicencia;
+    public String getTipoLicencia() {
+        return null;
     }
 
     public void setTipoLicencia(TipoLicencia tipoLicencia) {
