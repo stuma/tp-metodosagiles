@@ -18,13 +18,13 @@ public class Titular {
      * constructor que deserializa y serializa la informacion de la entidad desde un formato json
      */
     public Titular(@JsonProperty("id") String id,
-                    @JsonProperty("dni") Integer dni,
-                    @JsonProperty("nombre") String nombre,
-                    @JsonProperty("apellido") String apellido,
-                    @JsonProperty("direccion") String direccion,
-                    @JsonProperty("donante") Boolean donante,
-                    @JsonProperty("factorRh") String factorRh
-                    ) {
+                   @JsonProperty("dni") Integer dni,
+                   @JsonProperty("nombre") String nombre,
+                   @JsonProperty("apellido") String apellido,
+                   @JsonProperty("direccion") String direccion,
+                   @JsonProperty("donante") Boolean donante,
+                   @JsonProperty("factorRh") String factorRh
+    ) {
         this.id = id;
         this.dni = dni;
         this.nombre = nombre;

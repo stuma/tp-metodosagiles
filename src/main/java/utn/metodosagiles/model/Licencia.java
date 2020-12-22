@@ -17,13 +17,13 @@ public class Licencia {
 
     //constructor que serializa y deserializa los atributos desde un formato json
     public Licencia(@JsonProperty("id") String id,
-                   @JsonProperty("tipoLicencia") TipoLicencia tipoLicencia,
+                    @JsonProperty("tipoLicencia") TipoLicencia tipoLicencia,
                     @JsonProperty("fechaEmision") LocalDate fechaEmision,
                     @JsonProperty("fechaVencimiento") LocalDate fechaVencimiento,
                     @JsonProperty("titular") Titular titular,
-                   @JsonProperty("observaciones") String observaciones,
-                   @JsonProperty("numeroCopias") Integer numeroCopias,
-                   @JsonProperty("pendiente") Boolean pendiente) {
+                    @JsonProperty("observaciones") String observaciones,
+                    @JsonProperty("numeroCopias") Integer numeroCopias,
+                    @JsonProperty("pendiente") Boolean pendiente) {
         this.id = id;
         this.tipoLicencia = tipoLicencia;
         this.fechaEmision = fechaEmision;
@@ -113,4 +113,3 @@ public class Licencia {
         this.pendiente = pendiente;
     }
 }
-
