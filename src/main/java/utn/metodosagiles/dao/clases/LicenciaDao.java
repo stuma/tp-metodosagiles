@@ -19,7 +19,7 @@ public class LicenciaDao implements LicenciaDaoInterface {
         return 1;
     }
 
-    //guarda una licencia en db
+    //metodo auxiliar para insertar una licencia en la bd
     @Override
     public Integer insertLicencia(Licencia licencia) {
         return 0;

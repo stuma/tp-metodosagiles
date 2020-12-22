@@ -22,13 +22,19 @@ public class LicenciaController {
 
     //endpoint para realizar el alta de una licencia
     @PostMapping
-    public void addLicencia(@RequestBody Licencia licencia){
-        licenciaService.addLicencia(licencia);
+    public void addLicencia(@RequestBody Licencia licencia, @RequestBody boolean imprimir) throws Exception {
+        licenciaService.addLicencia(licencia, imprimir);
     }
 
     //endpoint para obtener todas las licencias
     @GetMapping
     public List<Licencia> getAllLicencias() {
+        return licenciaService.getAllLicencias();
+    }
+
+    //endpoint para obtener todas las licencias expiradas
+    @GetMapping
+    public List<Licencia> getLicenciasExpiradas() {
         return licenciaService.getAllLicencias();
     }
 
